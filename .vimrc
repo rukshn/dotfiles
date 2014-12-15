@@ -37,42 +37,57 @@ filetype plugin indent on    " required
 "
 set t_Co=256
 set background=dark
-colorscheme molokai
+colorscheme jellybeans
+set encoding=utf-8
 
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+:nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+:nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
+:nnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
+:xnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
+:xnoremap <expr> Y (v:register ==# '"' ? '"+' : '') . 'Y'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Moving around, tabs, windows and buffers
-" """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" " Treat long lines as break lines (useful when moving around in them)
+" Easy navigation between splits. Instead of ctrl-w + j. Just ctrl-j
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
-map j gj
-map k gk
+" Toggle nerdtree with F10
+map <F10> :NERDTreeToggle<CR>
+" Current file in nerdtree
+map <F9> :NERDTreeFind<CR>
 
-map <space> /
-map <c-space> ?
+set backspace=2   " Backspace deletes like most programs in insert mode
+set nocompatible  " Use Vim settings, rather then Vi settings
+set nobackup
+set nowritebackup
+set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set history=500
+set ruler         " show the cursor position all the time
+set showcmd       " display incomplete commands
+set incsearch     " do incremental searching
+set hlsearch      " highlight matches
+set laststatus=2  " Always display the status line
+set autowrite     " Automatically :write before running commands
 
-" Smart way to move between windows
+" bind K to search word under cursor
+nnoremap K :Ag "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-"Change some key mapping"
-
-set laststatus=2
-set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
+" Softtabs, 2 spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 
-function! HasPaste()
-    if &paste
-       return 'PASTE MODE  '
-        en
-    	return ''
-endfunction
+" Highlight line number of where cursor currently is
+hi CursorLineNr guifg=#050505
+
 
 "Neo Complete"
-"
 let g:neocomplcache_enable_at_startup = 1
+
+"Indent Guides"
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 1
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
