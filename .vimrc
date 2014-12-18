@@ -9,14 +9,19 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
-Plugin 'tomasr/molokai'
+Plugin 'sickill/vim-monokai'
 Plugin 'scrooloose/nerdtree'
-Plugin 'chriskempson/base16-vim'
 Plugin 'Shougo/neocomplcache.vim'
 Plugin 'hail2u/vim-css3-syntax'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Yggdroot/indentLine'
 Plugin 'mattn/emmet-vim'
 Plugin 'nanotech/jellybeans.vim'
+Plugin 'sickill/vim-sunburst'
+Plugin 'blerins/flattown'
+Plugin 'ajh17/Spacegray.vim'
+Plugin 'Raimondi/delimitMate'
+Plugin 'whatyouhide/vim-gotham'
+Plugin 'cocopon/iceberg.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -37,7 +42,7 @@ filetype plugin indent on    " required
 "
 set t_Co=256
 set background=dark
-colorscheme jellybeans
+colorscheme iceberg 
 set encoding=utf-8
 
 :nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
@@ -88,6 +93,4 @@ let g:neocomplcache_enable_at_startup = 1
 
 "Indent Guides"
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 1
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+let g:indentLine_color_term = 239
