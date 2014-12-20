@@ -22,7 +22,7 @@ Plugin 'ajh17/Spacegray.vim'
 Plugin 'Raimondi/delimitMate'
 Plugin 'whatyouhide/vim-gotham'
 Plugin 'cocopon/iceberg.vim'
-
+Plugin 'gosukiwi/vim-atom-dark'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -42,7 +42,7 @@ filetype plugin indent on    " required
 "
 set t_Co=256
 set background=dark
-colorscheme iceberg 
+colorscheme atom-dark-256 
 set encoding=utf-8
 
 :nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
@@ -56,6 +56,10 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+nmap <C-N> :set invnumber<CR>
+nmap <C-V> :set paste<CR>
+nmap <C-V><C-V> :set nopaste<CR>
 
 " Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
