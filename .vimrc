@@ -16,13 +16,14 @@ Plugin 'hail2u/vim-css3-syntax'
 Plugin 'Yggdroot/indentLine'
 Plugin 'mattn/emmet-vim'
 Plugin 'nanotech/jellybeans.vim'
-Plugin 'sickill/vim-sunburst'
 Plugin 'blerins/flattown'
 Plugin 'ajh17/Spacegray.vim'
 Plugin 'Raimondi/delimitMate'
-Plugin 'whatyouhide/vim-gotham'
 Plugin 'cocopon/iceberg.vim'
 Plugin 'gosukiwi/vim-atom-dark'
+Plugin 'chriskempson/vim-tomorrow-theme'
+Plugin 'chriskempson/base16-vim'
+Plugin 'bling/vim-airline'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -40,10 +41,16 @@ filetype plugin indent on    " required
 "
 "END OF VUNDLE
 "
-set t_Co=256
 set background=dark
-colorscheme atom-dark-256 
+colorscheme base16-default 
 set encoding=utf-8
+
+set go-=m
+set go-=T
+set go-=r
+set go-=L
+
+set guifont=Monospace\ 9
 
 :nnoremap <expr> y (v:register ==# '"' ? '"+' : '') . 'y'
 :nnoremap <expr> yy (v:register ==# '"' ? '"+' : '') . 'yy'
@@ -57,10 +64,14 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-nmap <C-N> :set invnumber<CR>
-nmap <C-V> :set paste<CR>
-nmap <C-V><C-V> :set nopaste<CR>
+vmap <C-c> "+yi
+vmap <C-x> "+c
+vmap <C-v> c<ESC>"+p
+imap <C-v> <C-r><C-o>+
 
+nmap <C-N> :set invnumber<CR>
+nmap <C-A> :set paste<CR>
+nmap <C-A><C-A> :set nopaste<CR>
 " Toggle nerdtree with F10
 map <F10> :NERDTreeToggle<CR>
 " Current file in nerdtree
@@ -70,7 +81,7 @@ set backspace=2   " Backspace deletes like most programs in insert mode
 set nocompatible  " Use Vim settings, rather then Vi settings
 set nobackup
 set nowritebackup
-set noswapfile    " http://robots.thoughtbot.com/post/18739402579/global-gitignore#comment-458413287
+set noswapfile    " http://robots.thoughtbot.com/pmost/18739402579/global-gitignore#comment-458413287
 set history=500
 set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
