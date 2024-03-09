@@ -1,0 +1,48 @@
+#import = ["/home/rukshan/.config/alacritty/dracula.toml"]
+import = ["~/.config/alacritty/rose-pine.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 7.5
+
+[font.bold]
+family = "JetBrains Mono Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "JetBrains Mono Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "JetBrains Mono Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "JetBrains Mono Nerd Font"
+style = "Regular"
+
+[font.offset]
+x = 1
+y = 1
+
+[scrolling]
+history = 5000
+
+[shell]
+program = "/usr/bin/zsh"
+
+[window]
+opacity = 1.0
+title = "Rukshan@Alacritty"
+startup_mode = "Fullscreen"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
+
+[window.padding]
+x = 6
+y = 6
+
